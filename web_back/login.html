@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/iconfont.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- 引入jq -->
+    <script src="./js/jquery-1.12.4.min.js"></script>
 </head>
 
 <body>
@@ -25,9 +27,31 @@
                 <i class="iconfont icon-key"></i>
                 <input type="text" class="input_txt" placeholder="邮箱/手机号">
                 <input type="password" class="input_pass" placeholder="密码">
-                <input type="submit" class="input_sub" value="登 录">
+                <input id="btn" type="button" class="input_sub" value="登 录">
             </form>
         </div>
     </div> 
+    <script>
+        // 给btn注册点击事件 当时 but 的type为 submit 有提交行为
+        $('#btn').click(function(){
+            // 获取账号和密码
+          var   username=$('.input_txt').val();
+          var  password=$('.input_pass').val();
+            //   向服务器发送请求
+             $.post('http://192.168.172.82:8000/admin/login',{
+                user_name:username,
+                password:password
+             }).then(function(res){
+                console.log(res);//获取返回的数据
+                if(res.code==200){
+                    alert('登录成功')
+                    location.href='index.html'
+                }else if(res.code==400){
+                    alert(res.msg)
+                }     
+             })
+        })
+    
+    </script>
 </body>
 </html>
