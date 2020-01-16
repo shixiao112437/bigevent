@@ -17,8 +17,8 @@
     <div class="sider">
         <a href="#" class="logo"><img src="images/logo02.png" alt="logo"></a>
         <div class="user_info">
-            <img src="images/2.jpg" alt="person">
-            <span>欢迎&nbsp;&nbsp;李思思</span>
+            <img src="images/2.jpg" alt="person" class="userimg">
+            <span>欢迎&nbsp;&nbsp;<i id="username"></i></span>
             <b>管理员</b>
         </div>
         <div class="menu">
@@ -43,8 +43,8 @@
         </form>
         <div class="user_center_link">
             <a href="user.html" onclick="setMenu(3,0)" target="main_frame">个人中心</a>
-            <img src="images/2.jpg" alt="person">
-            <a href="#"><i class="iconfont icon-tuichu"></i> 退出</a>
+            <img src="images/2.jpg" alt="person" class="userimg">
+            <a id="loginout" href="#"><i class="iconfont icon-tuichu"></i> 退出</a>
         </div>
     </div>
 
@@ -103,6 +103,29 @@
         }
 
     </script>
+
+   
+       <script>
+            //  获取用户信息部分
+        $.get('http://192.168.172.82:8000/admin/getuser').then(function(res){
+            console.log(res);
+            // 渲染数据
+            $('#username').text(res.data.nickname);
+            $('.userimg').prop('src',res.data.user_pic)
+        })
+        //  退出登录部分
+            $('#loginout').click(function(){
+                // 发送请求
+                $.post('http://192.168.172.82:8000/admin/logout').then(function(res){
+                    console.log(res);
+                    if(res.code==200){
+                        location.href='login.html'
+                    }        
+                })
+               
+                
+            })
+       </script>
 
 </body>
 </html>
