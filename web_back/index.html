@@ -111,28 +111,9 @@
 
     </script>
 
-
+    <script src="./js/user.js"></script>
     <script>
-        // 封装函数
-        var user = {
-            getinfoShow: function () {
-                $.get('http://192.168.172.82:8000/admin/getuser').then(function (res) {
-                    console.log(res);
-                    // 渲染数据
-                    $('#username').text(res.data.nickname);
-                    $('.userimg').prop('src', res.data.user_pic)
-                })
-            },
-            loginout: function () {
-                $.post('http://192.168.172.82:8000/admin/logout')
-                .then(function (res) {
-                    console.log(res);
-                    if (res.code == 200) {
-                    location.href = 'login.html'
-                    }
-                })
-            }
-        }
+    
         //  获取用户信息部分
         user.getinfoShow();
         //  退出登录部分
