@@ -34,18 +34,23 @@
 
 
 
-    <script src="./js/user.js"></script>
+    <script src="./js/url.js"></script>
+    <script src="./js/url.user.js"></script>
     <script>
         // 封装函数
-     
+
         // 给btn注册点击事件 当时 but 的type为 submit 有提交行为
         $('#btn').click(function () {
             // 获取账号和密码
-
+            var username = $('.input_txt').val().trim();
+            var password = $('.input_pass').val().trim();
             //   如果输入的内容为空 就弹出 不能为空
-
+            if (username.length == 0 || password.length == 0) {
+                alert('账号密码不能为空');
+                return
+            }
             //   向服务器发送请求
-            user.login();
+            user.login(username,password);
 
         })
 

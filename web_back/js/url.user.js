@@ -1,7 +1,7 @@
 var user = {
     // 获取信息
     getinfoShow: function () {
-        $.get('http://192.168.172.82:8000/admin/getuser')
+        $.get(APILIST.USERINFO)
         .then(function (res) {
             console.log(res);
             // 渲染数据
@@ -11,7 +11,7 @@ var user = {
     },
     // 退出
     loginout: function () {
-        $.post('http://192.168.172.82:8000/admin/logout')
+        $.post(APILIST.LOGOUT)
             .then(function (res) {
                 console.log(res);
                 if (res.code == 200) {
@@ -20,10 +20,11 @@ var user = {
             })
     },
     // 登录
-    login: function () {
-        $.post('http://192.168.172.82:8000/admin/login', {
-            user_name: username,
-            password: password
+    login: function (a,b) {
+
+        $.post(APILIST.LOGIN, {
+            user_name: a,
+            password: b
         }).then(function (res) {
             console.log(res);//获取返回的数据
             if (res.code == 200) {
