@@ -11,7 +11,8 @@
     <link rel="stylesheet" type="text/css" href="css/jquery.pagination.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
-	<script type="text/javascript" src="js/jquery.pagination.min.js"></script>
+    <script type="text/javascript" src="js/jquery.pagination.min.js"></script>
+    <script src="../js库/jquery.pagination.min.js"></script>
 </head>
 
 <body>
@@ -41,7 +42,7 @@
                     <li><a href="#">公 司</a></li>
                 </ul>
             </div>
-            <ul class="left_menu fl">
+            <ul class="left_menu fl" id="topnav">
                 <li><a href="#">最 新</a></li>
                 <li><a href="#">科 技</a></li>
                 <li><a href="#">股 市</a></li>
@@ -136,17 +137,17 @@
             </div>
 
             <div id="pagination" class="page"></div>
-            <script>
-                $(function() {
+            <!-- <script>
+                $(function () {
                     $("#pagination").pagination({
                         currentPage: 2,
-                        totalPage:8,
-                        callback: function(current) {
+                        totalPage: 8,
+                        callback: function (current) {
                             alert('ok!');
                         }
                     });
                 });
-            </script>
+            </script> -->
 
         </div>
         <div class="right_con setfl">
@@ -220,12 +221,62 @@
             <span>|</span>
             <a href="#">招聘人才</a>
             <span>|</span>
-            <a href="#">友情链接</a>		
+            <a href="#">友情链接</a>
         </div>
-        <p>CopyRight © 2019 深圳大事件信息技术股份有限公司   All Rights Reserved</p>
-        <p>电话：0755-****888    粤ICP备*******8号</p>
+        <p>CopyRight © 2019 深圳大事件信息技术股份有限公司 All Rights Reserved</p>
+        <p>电话：0755-****888 粤ICP备*******8号</p>
     </div>
 
 </body>
+<script src="./js/jquery-1.12.4.min.js"></script>
+<script src="./js/url.js"></script>
+<script src="./js/artic.js"></script>
+<script src="../js库/template-web.js"></script>
+<!-- //文章类别 -->
+<script id="type" type="text/html">
+    {{each data item index}}
+      <li dataid={{item.id}}><a href="list.html?id={{item.id}}" >{{item.name}}</a></li>
+    {{/each}}
+</script>
+<script>
+    // 动态显示文章类别 同首页
+    var id = location.search.substr(4);
+    console.log(id);
+
+    ARTIC.getType().then(function (res) {
+        // 使用模板引擎 渲染数据
+        var str = template('type', res)
+        console.log(res);
+
+        $('#downlist').append(str);
+        $('#topnav').html(str);
+        // ==========================================================
+        /*    var navlis = document.querySelectorAll('#topnav li');
+           console.log(navlis);
+   
+           for (var i = 0; i < navlis.length; i++) {
+               console.log(navlis[i].getAttribute('dataid'));
+               if (navlis[i].getAttribute('dataid') == id) {
+                   navlis[i].style.background = 'blue'
+               }
+           } */
+
+    })
+    setTimeout(function () {
+        var navlis = document.querySelectorAll('#topnav li');
+        console.log(navlis);
+
+        for (var i = 0; i < navlis.length; i++) {
+            console.log(navlis[i].getAttribute('dataid'));
+            if (navlis[i].getAttribute('dataid') == id) {
+                navlis[i].style.background = 'blue'
+            }
+        }
+    }, 0)
+
+
+
+
+</script>
 
 </html>
