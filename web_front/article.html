@@ -206,5 +206,47 @@
     </div>
 
 </body>
+<script src="./js/jquery-1.12.4.min.js"></script>
+<script src="./js/url.js"></script>
+<script src="./js/artic.js"></script>
+<script src="../js库/template-web.js"></script>
+<script>
+    var id = location.search.substr(4);
+    console.log(id);
+   ARTIC.getById(id).then(function(res){
+        console.log(res);
+        // if(res.code == 200){
+        //         var t = res.data
+        //         // 给对应的dom元素赋值
+        //         $('#author').html( t.author);
+        //         $('#comment').html(t.comment);
+        //         $('#content').html(t.content);
+        //         $('#date').html(t.date);
+        //         // ======================================================================重点
+        //         //上，下文章导航
+        //         // 有的文章有一篇，有的可能没有，所以要先判断一下。
+        //         if(t.prev) {
+        //             $('#prev').attr('href','./article.html?id='+t.prev.id);
+        //             $('#prev').text(t.prev.title);
+        //         } else {
+        //             $('#prev').text('无');
+        //         }
+        //         if(t.next) {
+        //             $('#next').attr('href','./article.html?id='+t.next.id)
+        //             $('#next').text(t.next.title)
+        //         }else {
+        //             $('#next').text('无');
+        //         }
+
+
+        //         $('#read').html(t.read);
+        //         $('#title').html(t.title);
+        //         $('#type_name').html(t.type_name);
+
+        //     } 
+        
+    })
+    
+</script>
 
 </html>

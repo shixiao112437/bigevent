@@ -153,14 +153,14 @@
                         }
                     });
                 }) */
-        var curentPage = 1;
-
         var curTotalPage //记录上次获取的从总页数
+        var res, res1 //筛选功能  下拉菜单的值
+    
         // 获取第一页文章 并显示从页数
         function getShow(page, type, state) {
             // ARTIC.get(curentPage,a,b)
             $.get(APILIST.TEXTSEARCH, { 'page': page, 'type': type, 'state': state }).then(function (res) {
-                // console.log(res);
+                console.log(res);
                 // 渲染数据 用到模板引擎
                 var str = template('articList', res);
                 // console.log(str);
@@ -182,10 +182,9 @@
                     next: '下一页',
                     last: '尾页',
                     onPageClick: function (event, page) {
-                        var curentPage = page;
-                        var type = $('#selCategory').val();
-                        var state = $('#selStatus').val();
-                        getShow(page, type, state);
+                         res = $('#selCategory').val();
+                         res1 = $('#selStatus').val();
+                        getShow(page, res,res1);
                     }
                 });
             })
@@ -193,12 +192,13 @@
         }
        
         // 页面加载显示第一页
-        getShow(curentPage);
-        // 文章放入筛选功能
+        getShow(1,res,res1);
+
+        // 文章筛选功能
         $('#btnSearch').click(function () {
             // 现获取下拉列表中的内容
-            var res = $('#selCategory').val();
-            var res1 = $('#selStatus').val();
+            res = $('#selCategory').val();
+            res1 = $('#selStatus').val();
             console.log(res, res1);
             // 重新发送请求
             getShow(1, res, res1)
@@ -206,12 +206,15 @@
 
         // 删除功能
         $('#artic').on('click','.del',function(){
+            if(!confirm('你确定要删除吗？')) {
+                return 
+            }
             // 获取id
             var id=$(this).data('id');
             alert(id)
             ARTIC.delArticType(id).then(function(res){
                 if(res.code==200){
-                    getShow(1)
+                    getShow(1,res,res1)
                 }else{
                     alert(res.msg)
                 }

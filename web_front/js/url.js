@@ -10,6 +10,7 @@ var APILIST={
     search:BASE+'/search',
     // 最新资讯
     latest:BASE+'/lastest',
-
+//    详情文章
+    details:BASE+'/article'
 
 }
