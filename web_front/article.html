@@ -58,10 +58,10 @@
             <div class="breadcrumb">
                 当前位置： <a href="#">首页</a> &gt; <a href="#">科技</a> &gt; 文章详情
             </div>
-            <h3 class="article_title">马斯克的新花样？连接人脑和电脑的初创公司又筹了一笔钱</h3>
+            <h3 class="article_title" id="article_title">马斯克的新花样？连接人脑和电脑的初创公司又筹了一笔钱</h3>
             <div class="article_info">杰克 发布于 2019-05-08 07:08:46&nbsp;&nbsp;&nbsp;分类: 奇趣事&nbsp;&nbsp;&nbsp;阅读:
                 (98)&nbsp;&nbsp;&nbsp;评论: (0)</div>
-            <div class="article_con">
+            <div class="article_con" id="content">
 
                 <p>“上天入地”还不够？硅谷“钢铁侠”马斯克名下一家低调的公司最近又融了一大笔钱。</p>
 
@@ -76,119 +76,121 @@
 
             </div>
             <div class="article_links">
-                上一篇： <a href="#">世界第一台可以玩游戏的冰箱</a><br>
-                下一篇： <a href="#">世界第一个可以玩游戏的马桶、世界上第一个可以玩游戏的茶杯</a>
+                上一篇：
+                <a href="#" id="prev"></a>
+                <br>
+                下一篇： <a href="#" id="next"></a>
             </div>
 
             <form action="" class="comment_form">
                 <div class="form_group">
                     <label>用户名：</label>
-                    <input type="text" placeholder="请输入用户名" class="comment_name">
+                    <input type="text" placeholder="请输入用户名" class="comment_name" id="userName">
                 </div>
                 <div class="form_group">
                     <label>评论内容：</label>
-                    <textarea placeholder="请发表您的评论" class="comment_input"></textarea>
+                    <textarea placeholder="请发表您的评论" class="comment_input" id="userComment"></textarea>
                 </div>
                 <div class="form_group">
-                    <input type="submit" name="" value="评 论" class="comment_sub"></div>
+                    <input type="button" name="" value="评 论" class="comment_sub" id="addComment"></div>
             </form>
 
             <div class="comment_count">
                 4条评论
             </div>
 
-            <div class="comment_list_con">
-                <div class="comment_detail_list">
-                    <div class="person_pic fl">乔</div>
-                    <div class="name_time fl"><b>虚竹</b><span>4小时前</span></div>
-                    <div class="comment_text fl">
-                        遏制茅台酒价格过快上涨，多渠道供给，就不一定要买，租茅台酒也可以的，租售同权。开发共有产权茅台酒，让老百姓喝得起茅台酒，饮者有其酒。
-                    </div>
+            <div class="comment_list_con" id="new_comments"">
+                <div class=" comment_detail_list">
+                <div class="person_pic fl">乔</div>
+                <div class="name_time fl"><b>虚竹</b><span>4小时前</span></div>
+                <div class="comment_text fl">
+                    遏制茅台酒价格过快上涨，多渠道供给，就不一定要买，租茅台酒也可以的，租售同权。开发共有产权茅台酒，让老百姓喝得起茅台酒，饮者有其酒。
                 </div>
-                <div class="comment_detail_list">
-                    <div class="person_pic fl">段</div>
-                    <div class="name_time fl"><b>虚竹</b><span>4小时前</span></div>
-                    <div class="comment_text fl">
-                        遏制茅台酒价格过快上涨，多渠道供给，就不一定要买，租茅台酒也可以的，租售同权。开发共有产权茅台酒，让老百姓喝得起茅台酒，饮者有其酒。
-                    </div>
+            </div>
+            <div class="comment_detail_list">
+                <div class="person_pic fl">段</div>
+                <div class="name_time fl"><b>虚竹</b><span>4小时前</span></div>
+                <div class="comment_text fl">
+                    遏制茅台酒价格过快上涨，多渠道供给，就不一定要买，租茅台酒也可以的，租售同权。开发共有产权茅台酒，让老百姓喝得起茅台酒，饮者有其酒。
                 </div>
-                <div class="comment_detail_list">
-                    <div class="person_pic fl">虚</div>
-                    <div class="name_time fl"><b>虚竹</b><span>4小时前</span></div>
-                    <div class="comment_text fl">
-                        遏制茅台酒价格过快上涨，多渠道供给，就不一定要买，租茅台酒也可以的，租售同权。开发共有产权茅台酒，让老百姓喝得起茅台酒，饮者有其酒。
-                    </div>
+            </div>
+            <div class="comment_detail_list">
+                <div class="person_pic fl">虚</div>
+                <div class="name_time fl"><b>虚竹</b><span>4小时前</span></div>
+                <div class="comment_text fl">
+                    遏制茅台酒价格过快上涨，多渠道供给，就不一定要买，租茅台酒也可以的，租售同权。开发共有产权茅台酒，让老百姓喝得起茅台酒，饮者有其酒。
                 </div>
-                <div class="comment_detail_list">
-                    <div class="person_pic fl">王</div>
-                    <div class="name_time fl"><b>虚竹</b><span>4小时前</span></div>
-                    <div class="comment_text fl">
-                        遏制茅台酒价格过快上涨，多渠道供给，就不一定要买，租茅台酒也可以的，租售同权。开发共有产权茅台酒，让老百姓喝得起茅台酒，饮者有其酒。
-                    </div>
+            </div>
+            <div class="comment_detail_list">
+                <div class="person_pic fl">王</div>
+                <div class="name_time fl"><b>虚竹</b><span>4小时前</span></div>
+                <div class="comment_text fl">
+                    遏制茅台酒价格过快上涨，多渠道供给，就不一定要买，租茅台酒也可以的，租售同权。开发共有产权茅台酒，让老百姓喝得起茅台酒，饮者有其酒。
                 </div>
             </div>
         </div>
-        <div class="right_con setfl">
-            <div class="common_wrap">
-                <h3><i class="fa fa-bar-chart"></i> 一周热门排行</h3>
-                <ul class="content_list">
-                    <li><span class="first">1</span><a href="#">神奇的水滴摄影，泡泡中的世界泡泡中的世界</a></li>
-                    <li><span class="second">2</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-                    <li><span class="third">3</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-                    <li><span>4</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-                    <li><span>5</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-                    <li><span>6</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-                    <li><span>7</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-                </ul>
-            </div>
-            <div class="common_wrap">
-                <h3><i class="fa fa-commenting-o"></i> 最新评论</h3>
-                <ul class="content_list comment_list">
-                    <li>
-                        <span>山</span>
-                        <b><em>山治</em> 9个月前(08-14)说:</b>
-                        <strong>挺会玩的</strong>
-                    </li>
-                    <li>
-                        <span>丽</span>
-                        <b><em>丽丽</em> 9个月前(08-14)说:9个月前(08-14)说:9个月前(08-14)说:</b>
-                        <strong>挺会玩的挺会玩的挺会玩的挺会玩的</strong>
-                    </li>
-                    <li>
-                        <span>R</span>
-                        <b><em>Rechael</em> 9个月前(08-14)说:</b>
-                        <strong>挺会玩的</strong>
-                    </li>
-                    <li>
-                        <span>J</span>
-                        <b><em>John</em> 9个月前(08-14)说:</b>
-                        <strong>挺会玩的</strong>
-                    </li>
-                    <li>
-                        <span>段</span>
-                        <b><em>段正淳</em> 9个月前(08-14)说:</b>
-                        <strong>挺会玩的</strong>
-                    </li>
-                    <li>
-                        <span>乔</span>
-                        <b><em>乔峰</em> 9个月前(08-14)说:</b>
-                        <strong>挺会玩的</strong>
-                    </li>
-                </ul>
-            </div>
-            <div class="common_wrap">
-                <h3><i class="fa fa-bullseye"></i> 焦点关注</h3>
-                <ul class="content_list guanzhu_list">
-                    <li><a href="#">神奇的水滴摄影，泡泡中的世界泡泡中的世界</a></li>
-                    <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-                    <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-                    <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-                    <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-                    <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-                    <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-                </ul>
-            </div>
+    </div>
+    <div class="right_con setfl">
+        <div class="common_wrap">
+            <h3><i class="fa fa-bar-chart"></i> 一周热门排行</h3>
+            <ul class="content_list">
+                <li><span class="first">1</span><a href="#">神奇的水滴摄影，泡泡中的世界泡泡中的世界</a></li>
+                <li><span class="second">2</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
+                <li><span class="third">3</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
+                <li><span>4</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
+                <li><span>5</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
+                <li><span>6</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
+                <li><span>7</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
+            </ul>
         </div>
+        <div class="common_wrap">
+            <h3><i class="fa fa-commenting-o"></i> 最新评论</h3>
+            <ul class="content_list comment_list">
+                <li>
+                    <span>山</span>
+                    <b><em>山治</em> 9个月前(08-14)说:</b>
+                    <strong>挺会玩的</strong>
+                </li>
+                <li>
+                    <span>丽</span>
+                    <b><em>丽丽</em> 9个月前(08-14)说:9个月前(08-14)说:9个月前(08-14)说:</b>
+                    <strong>挺会玩的挺会玩的挺会玩的挺会玩的</strong>
+                </li>
+                <li>
+                    <span>R</span>
+                    <b><em>Rechael</em> 9个月前(08-14)说:</b>
+                    <strong>挺会玩的</strong>
+                </li>
+                <li>
+                    <span>J</span>
+                    <b><em>John</em> 9个月前(08-14)说:</b>
+                    <strong>挺会玩的</strong>
+                </li>
+                <li>
+                    <span>段</span>
+                    <b><em>段正淳</em> 9个月前(08-14)说:</b>
+                    <strong>挺会玩的</strong>
+                </li>
+                <li>
+                    <span>乔</span>
+                    <b><em>乔峰</em> 9个月前(08-14)说:</b>
+                    <strong>挺会玩的</strong>
+                </li>
+            </ul>
+        </div>
+        <div class="common_wrap">
+            <h3><i class="fa fa-bullseye"></i> 焦点关注</h3>
+            <ul class="content_list guanzhu_list">
+                <li><a href="#">神奇的水滴摄影，泡泡中的世界泡泡中的世界</a></li>
+                <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
+                <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
+                <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
+                <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
+                <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
+                <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
+            </ul>
+        </div>
+    </div>
     </div>
 
     <div class="footer clearfix">
@@ -210,43 +212,97 @@
 <script src="./js/url.js"></script>
 <script src="./js/artic.js"></script>
 <script src="../js库/template-web.js"></script>
+
+<script src="../js库/dayjs/dayjs.min.js"></script>
+<script src="../js库/dayjs/zh_cn.js"></script>
+<script src="../js库/dayjs/relative.min.js"></script>
+<!-- 评论模板 -->
+<script id="comments" type="text/html">
+    {{each data item index}}
+    <div class="comment_detail_list" data-id="{{item.article_id}}">
+        <div class="person_pic fl">{{item.name[0]}}</div>
+        <div class="name_time fl"><b>{{item.name}}</b><span>{{item.date}}</span></div>
+        <div class="comment_text fl">
+            {{item.content}}
+        </div>
+    </div>
+    {{/each}}
+</script>
 <script>
     var id = location.search.substr(4);
     console.log(id);
-   ARTIC.getById(id).then(function(res){
+    // 获取文章内容部分
+    ARTIC.getById(id).then(function (res) {
         console.log(res);
-        // if(res.code == 200){
-        //         var t = res.data
-        //         // 给对应的dom元素赋值
-        //         $('#author').html( t.author);
-        //         $('#comment').html(t.comment);
-        //         $('#content').html(t.content);
-        //         $('#date').html(t.date);
-        //         // ======================================================================重点
-        //         //上，下文章导航
-        //         // 有的文章有一篇，有的可能没有，所以要先判断一下。
-        //         if(t.prev) {
-        //             $('#prev').attr('href','./article.html?id='+t.prev.id);
-        //             $('#prev').text(t.prev.title);
-        //         } else {
-        //             $('#prev').text('无');
-        //         }
-        //         if(t.next) {
-        //             $('#next').attr('href','./article.html?id='+t.next.id)
-        //             $('#next').text(t.next.title)
-        //         }else {
-        //             $('#next').text('无');
-        //         }
+        if (res.code == 200) {
+            var {
+                comment,
+                content,
+                date,
+                next,
+                prev,
+                read,
+                title,
+                type_id,
+                type_name
+            } = res.data
+            console.log(comment);
 
+            $('#article_title').text(title)
+            $('#content').html(content)
+            if (prev) {
+                $('#prev').attr('href', `article.html?id=${prev.id}`).html(prev.title)
+            } else {
+                $('#prev').html('无')
+            };
+            if (next) {
+                $('#next').attr('href', `article.html?id=${next.id}`).html(next.title)
+            } else {
+                $('#next').html('无')
+            }
 
-        //         $('#read').html(t.read);
-        //         $('#title').html(t.title);
-        //         $('#type_name').html(t.type_name);
+        }
 
-        //     } 
-        
     })
-    
+
+    // 获取评论 部分
+    dayjs.locale('zh-cn');
+    dayjs.extend(dayjs_plugin_relativeTime); //插件使用
+    function showComments() {
+        ARTIC.getArticComment(id).then(function (res) {
+            if (res.code == 200) {
+                console.log(res);
+                res.data.forEach(function (a, b) {
+                    a.date = dayjs(a.dt).fromNow() // 中文 几天前
+                    a.month = dayjs(a.dt).format('MM-DD') //01-04
+                })
+                var str = template('comments', res)
+                $('#new_comments').html(str)
+
+            } else {
+                alert(res.msg)
+            }
+
+        })
+    }
+    showComments()
+    //  发布评论
+    $('#addComment').on('click', function () {
+        var name = $('#userName').val().trim();
+        var content = $('#userComment').val().trim();
+        if (name.length == 0 || content == 0) {
+            alert('用户名和内容不能为空')
+        }
+         else {
+            ARTIC.addComment(name, content, id).then(function (res) {
+                console.log(res);
+                showComments()
+            })
+        }
+        $('#userName').val('')
+        $('#userComment').val('')
+    })
+
 </script>
 
 </html>

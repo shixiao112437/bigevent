@@ -171,7 +171,7 @@
             </div>
             <div class="common_wrap">
                 <h3><i class="fa fa-commenting-o"></i> 最新评论</h3>
-                <ul class="content_list comment_list">
+                <ul class="content_list comment_list" id="new_comments">
                     <li>
                         <span>山</span>
                         <b><em>山治</em> 9个月前(08-14)说:</b>
@@ -239,6 +239,10 @@
 <script src="./js/artic.js"></script>
 <script src="../js库/template-web.js"></script>
 <script src="../js库/jquery.twbsPagination.js"></script> //分页插件
+
+<script src="../js库/dayjs/dayjs.min.js"></script>  
+<script src="../js库/dayjs/zh_cn.js"></script>
+<script src="../js库/dayjs/relative.min.js"></script>
 <!-- //文章类别 -->
 <script id="type" type="text/html">
     {{each data item index}}
@@ -276,9 +280,21 @@
         </div>
     {{/each}}
 </script>
+<!-- 最新评论 -->
+<script id="comments" type="text/html">
+    {{each data item index}}
+    <li>
+        <span>{{item.name[0]}}</span>
+        <b><em>{{item.name}}</em> {{item.date}}({{item.month}})说:</b>
+        <strong>{{item.content}}</strong>
+    </li>
+
+
+    {{/each}}
+</script>
 <script>
     // 动态显示文章类别 同首页
-    var id = location.search.substr(4);
+    var id = location.search.substr(4);  //文章类型的id
     // console.log(id);
 
     ARTIC.getType().then(function (res) {
@@ -344,6 +360,8 @@
     //         // getAndShow();
     //     }
     // });
+
+    // 分页功能 和列表
     var curPage
     function getshow() {
         ARTIC.getArtic(id, 6, curPage).then(function (res) {
@@ -378,6 +396,29 @@
     }
 
     getshow()
+
+    //最新评论部分
+      dayjs.locale('zh-cn');
+      dayjs.extend(dayjs_plugin_relativeTime); //插件使用
+
+    ARTIC.getComments(id).then(function(res){
+        if(res.code==200){
+            console.log(res);
+            res.data.forEach(function(a,b){
+                a.date=dayjs(a.dt).fromNow() // 中文 几天前
+                a.month=dayjs(a.dt).format('MM-DD') //01-04
+            })
+            var str=template('comments',res)
+            $('#new_comments').html(str)
+        }else{
+            alert(res.msg)
+        }
+
+        
+    })
+    
+    //焦点关注 部分
+
 </script>
 
 </html>

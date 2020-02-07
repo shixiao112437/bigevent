@@ -42,8 +42,10 @@ var ARTIC={
             processData:false,
             contentType:false,
         }) 
+    },
+    del:function(id){
+        return $.get(APILIST.delArtic,{id:id})
     }
-
 
 
 

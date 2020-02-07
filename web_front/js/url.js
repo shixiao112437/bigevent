@@ -10,7 +10,14 @@ var APILIST={
     search:BASE+'/search',
     // 最新资讯
     latest:BASE+'/lastest',
-//    详情文章
-    details:BASE+'/article'
+    //    详情文章
+    details:BASE+'/article',
+    // 最新评论
+    comments:BASE+'/get_latest_comments',
+    //文章 评论 
+    articComment:BASE+'/get_comments',
+    // 发布评论
+    addComment:BASE+'/post_comment',
+
 
 }

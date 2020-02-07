@@ -161,8 +161,8 @@
             </div>
             <div class="common_wrap">
                 <h3><i class="fa fa-commenting-o"></i> 最新评论</h3>
-                <ul class="content_list comment_list">
-                    <li>
+                <ul class="content_list comment_list" id="new_comments">
+                  <!--   <li>
                         <span>山</span>
                         <b><em>山治</em> 9个月前(08-14)说:</b>
                         <strong>挺会玩的</strong>
@@ -191,7 +191,7 @@
                         <span>乔</span>
                         <b><em>乔峰</em> 9个月前(08-14)说:</b>
                         <strong>挺会玩的</strong>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <div class="common_wrap">
@@ -239,13 +239,13 @@
 <script id="rank" type="text/html">
     {{each data item index}}
     {{if index == 0}}
-        <li><span class="first">{{index+1}}</span><a href="#">{{item.title}}</a></li>
+        <li><span class="first">{{index+1}}</span><a href=article.html?id={{item.id}}>{{item.title}}</a></li>
     {{else if index == 1}}
-        <li><span class="second">{{index+1}}</span><a href="#">{{item.title}}</a></li>
+        <li><span class="second">{{index+1}}</span><a href=article.html?id={{item.id}}>{{item.title}}</a></li>
     {{else if index == 2}}
-        <li><span class="third">{{index+1}}</span><a href="#">{{item.title}}</a></li>
+        <li><span class="third">{{index+1}}</span><a href=article.html?id={{item.id}}>{{item.title}}</a></li>
     {{else}}
-        <li><span>{{index+1}}</span><a href="#">{{item.title}}</a></li>
+        <li><span>{{index+1}}</span><a href=article.html?id={{item.id}}>{{item.title}}</a></li>
     {{/if}}
 {{/each}}
 </script>
@@ -319,7 +319,7 @@
         var str = template('lastest',res)
         $('#lastestList').html(str)
     })
-
+    //
 </script>
 
 </html>

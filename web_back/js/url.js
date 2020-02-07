@@ -35,7 +35,9 @@ var APILIST={
     // 文章发布
     fabu:BASE+'/admin/article_publish',
     //编辑文章
-    editArtic:BASE+'/admin/article_edit'
+    editArtic:BASE+'/admin/article_edit',
+    //删除文章
+    delArtic: BASE+'/admin/article_delete'
     
 
 }

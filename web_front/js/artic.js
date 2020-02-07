@@ -21,6 +21,16 @@ ARTIC={
     getById:function(id){
         return $.get(APILIST.details,{id:id})
 
+    },
+    // 最新评论
+    getComments:function(type){
+        return $.get(APILIST.comments,{type:type})
+    },
+    //文章评论
+    getArticComment:function(id){
+        return $.get(APILIST.articComment,{article_id:id})
+    },
+    addComment:function(name,content,id){
+        return $.post(APILIST.addComment,{name:name,content:content,article_id:id})
     }
-    
 }
