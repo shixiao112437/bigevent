@@ -1,21 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <input type="file" id="a">
 
     <script>
-    var inp=document.getElementById('a')    
-    inp.onchange=function(){
-        console.log(1);
+        var inp = document.getElementById('a')
+        inp.onchange = function () {
+            console.log(1);
+
+        }
+        function makeConst(obj) {
+            Object.freeze(obj);
+            Object.keys(obj).forEach(function (key) {
+                if (typeof obj[key] === 'object') {
+                    makeConst(obj[key])
+                }
+            })
+        }
+        var obj={
+            name:'hhhh',
+            info:{
+                id:1111,
+                hobby:['1123',112,12342]
+
+            }
+        }
         
-    }
-    
+        makeConst(obj)
+        obj.info.hobby[0]='你好';
+        console.log(obj);
+        var arr=[123,123,123,123,1]
+        makeConst(arr)
+        arr[0]='nnnnn'
+        console.log(arr);
+        
+        
     </script>
 </body>
+
 </html>

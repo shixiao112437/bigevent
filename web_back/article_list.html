@@ -124,7 +124,7 @@
 
     <script>
          // 把图书类别渲染在页面上
-        ARTIC.gettype().then(function (res) {
+        ARTIC.gettype().then( res=> {
             // console.log(res);
             var str = template('Category', res);
             // console.log(str);
@@ -159,7 +159,7 @@
         // 获取第一页文章 并显示从页数
         function getShow(page, type, state) {
             // ARTIC.get(curentPage,a,b)
-            $.get(APILIST.TEXTSEARCH, { 'page': page, 'type': type, 'state': state }).then(function (res) {
+            $.get(APILIST.TEXTSEARCH, { page, type, state }).then( res=> {
                 console.log(res);
                 // 渲染数据 用到模板引擎
                 var str = template('articList', res);
@@ -181,7 +181,7 @@
                     prev: '上一页',
                     next: '下一页',
                     last: '尾页',
-                    onPageClick: function (event, page) {
+                    onPageClick: (event, page)=>{
                         page=page
                          res = $('#selCategory').val();
                          res1 = $('#selStatus').val();
@@ -196,7 +196,7 @@
         getShow(1,res,res1);
 
         // 文章筛选功能
-        $('#btnSearch').click(function () {
+        $('#btnSearch').click(()=> {
             // 现获取下拉列表中的内容
             res = $('#selCategory').val();
             res1 = $('#selStatus').val();
@@ -206,14 +206,14 @@
         })
 
         // 删除功能
-        $('#artic').on('click','.del',function(){
+        $('#artic').on('click','.del',()=>{
             if(!confirm('你确定要删除吗？')) {
                 return 
             }
             // 获取id
             var id=$(this).data('id');
         
-            ARTIC.del(id).then(function(res){
+            ARTIC.del(id).then(res=>{
                 if(res.code==200){
                     getShow(1,res,res1)
                 }else{
@@ -224,6 +224,8 @@
         })
 
         //编辑功能
+        
+
       
     </script>
 

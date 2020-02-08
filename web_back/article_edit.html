@@ -90,7 +90,7 @@
     <script>
         // 1.获取并显示所有的文章类别
 
-        ARTIC.gettype().then(function(res){
+        ARTIC.gettype().then(res=>{
             console.log(res);
             
             var htmlstr=template('leibie',res)
@@ -98,8 +98,8 @@
             $('.form-control').html(htmlstr)
         })
         
-        //2.实现图片预览功能
-        $('#exampleInputFile').on('change',function(){
+        //2.实现图片预览功能     有bug  刷新页面  图片 闪
+        $('#exampleInputFile').on('change',()=>{
             var file=this.files[0];
             var src=URL.createObjectURL(file);
             $('#img').prop('src',src)
@@ -112,10 +112,10 @@
         // 3.发送请求获取id为参数 的文章
         var articId=location.search.substr(4)
         console.log(articId);
-        ARTIC.getId(articId).then(function(res){
+        ARTIC.getId(articId).then(res=>{
           if(res.code==200){
                 // 將data中的数据渲染在页面
-                var data = res.data;
+                var {data} = res
                 console.log(data);
                 
                 $('#inputEmail3').val(data.title);
@@ -123,6 +123,7 @@
                 $('#dateinput').val(data.date)
 
                 // 富文本编辑器中的内容
+
                 setTimeout (function(){
                         // tinymce.activeEditor.setContent能生效的前提是
                         // 富文本编辑器已经就绪了。如果说ajax数据回来了，但是富文本编辑器还没有绪
@@ -136,13 +137,13 @@
             
         })
         // 4.点击修改发送请求
-        $('#editSave').on('click',function(){
+        $('#editSave').on('click',()=>{
             // 因为涉及到图片 需要formData
             var fd=new FormData(document.getElementById('myform'));
             fd.append('id',articId)
             // 将富文本域中的内容添加给 content  重新设置
             fd.set('content',tinymce.activeEditor.getContent())
-            ARTIC.edit(fd).then(function(res){
+            ARTIC.edit(fd).then(res=>{
                 if(res.code==200){
                     alert('修改成功')
                 }else{

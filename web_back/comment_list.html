@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>评论列表</title>
-    <link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./js/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/iconfont.css">
     <link rel="stylesheet" href="css/main.css">
@@ -299,7 +299,18 @@
             window.parent.setMenu(0,0);
         })
     </script>
+    <script src="./js/url.js"></script>
+    <script src="./js/artic.js"></script>
+    <script src="./js/moban.js"></script><!--   模板引擎 -->
+    <script>
+      var page=1 //记录当前页
+        // 获取第一页 并显示
+      ARTIC.addComments(page).then(res=>{
+        console.log(res);
+        
+      })
 
+    </script>
 </body>
 
 </html>

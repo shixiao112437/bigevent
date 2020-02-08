@@ -40,7 +40,7 @@
         // 封装函数
 
         // 给btn注册点击事件 当时 but 的type为 submit 有提交行为
-        $('#btn').click(function () {
+        $('#btn').click(()=> {
             // 获取账号和密码
             var username = $('.input_txt').val().trim();
             var password = $('.input_pass').val().trim();
@@ -53,7 +53,7 @@
             user.login(username,password);
 
         })
-        $('.input_pass').keyup(function(e){
+        $('.input_pass').keyup(e=>{
             if(e.keyCode==13){
                 $('#btn').click()
             }

@@ -1,6 +1,7 @@
 // 创建一个基地值
 var BASE='http://192.168.0.107:8000';
 // 基地址 中的所有接口
+        //所有没有admin的都能删除  没用
 var APILIST={
     // 用户登录
     LOGIN:BASE+'/admin/login',
@@ -37,7 +38,9 @@ var APILIST={
     //编辑文章
     editArtic:BASE+'/admin/article_edit',
     //删除文章
-    delArtic: BASE+'/admin/article_delete'
+    delArtic: BASE+'/admin/article_delete',
+    //后端 文章评论
+    get_comments:BASE+'/admin/comment_search'
     
 
 }

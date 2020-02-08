@@ -1,51 +1,48 @@
 var ARTIC={
     // 文章列表获取
-    get:function(page,type,state){
-       return $.get(APILIST.TEXTSEARCH,{'page':page,'type':type,'state':state})
+    get(page,type,state){
+       return $.get(APILIST.TEXTSEARCH,{page,type,state})
     },
     // 通过id获取文章
-    getId:function(id){
-        return $.get(APILIST.TEXTSEARCH,{'id':id})
-    },
+    getId:id=> $.get(APILIST.TEXTSEARCH,{id}),
+    
     // 文章类别搜索
-    gettype:function(){
-        return $.get(APILIST.artictype)
-    },
+    gettype:()=>$.get(APILIST.artictype),
     // 新增类别
-    addArticType:function(a,b){
-        return $.post(APILIST.addArticType,{name:a,slug:b})
+    addArticType(name,slug){
+        return $.post(APILIST.addArticType,{name,slug})
     },
     //删除类别
-    delArticType:function(id){
-        return $.post(APILIST.delArticType,{id:id})
-    },
+    delArticType:id=> $.post(APILIST.delArticType,{id}),
     // 编辑类别
-    editArticType:function(id,name,slug){
-        return $.post(APILIST.editArticType,{id:id,name:name,slug:slug})
+    editArticType(id,name,slug){
+        return $.post(APILIST.editArticType,{id,name,slug})
     },
     // 文章发布
-    add:function(data){
+    add:data=>{
         return $.ajax({
             url:APILIST.fabu,
-            data:data,
+            data,
             type:"POST",
             processData:false, //不允许处理数据
             contentType:false, //不要设置请求头
 
         })
     },
-    edit:function(data){
+    //编辑文章
+    edit(data){
         return $.ajax({
             url:APILIST.editArtic,
             type:'post',
-            data:data,
+            data,
             processData:false,
             contentType:false,
         }) 
     },
-    del:function(id){
-        return $.get(APILIST.delArtic,{id:id})
-    }
+    //删除文章
+    del:id=>$.get(APILIST.delArtic,{id:id}),
+    //获取评论
+    addComments:(page,perpage=6)=>{return $.get(APILIST.get_comments,{page,perpage})}
 
 
 

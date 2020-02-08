@@ -162,8 +162,8 @@
                 $('#articType').html(str)
     
             }) */
-        function getShow() {
-            ARTIC.gettype().then(function (res) {
+         getShow= () =>{
+            ARTIC.gettype().then( res=> {
                 // console.log(res);
 
                 var str = template('type', res)
@@ -179,7 +179,7 @@
                 $('#articType').html(str)
             }) */
         // 给模态框里面的新增注册点击事件
-        $('#model_add').click(function () {
+        $('#model_add').click( ()=> {
             //获取 分类名称 和分类别名  可以使用FormData
             /*    var fd = new FormData($('#form')[0]);
                ARTIC.addArticType(fd).then(function (res) {
@@ -192,7 +192,7 @@
                 alert('内容不能为空')
                 return
             }
-            ARTIC.addArticType(name, slug).then(function (res) {
+            ARTIC.addArticType(name, slug).then( res=> {
                 if (res.code == 200) {
                     getShow();
                     $('#recipient-name').val('');
@@ -206,13 +206,13 @@
 
         })
         // 点击关闭隐藏模态框
-        $('#model_shutoff').click(function () {
+        $('#model_shutoff').click( ()=> {
             $('#addModal').modal('hide')
         })
         // 删除文章类别
-        $('#articType').on('click', '.del', function () {
+        $('#articType').on('click', '.del',  ()=> {
             var id = $(this).data('id');
-            ARTIC.delArticType(id).then(function (res) {
+            ARTIC.delArticType(id).then( res=> {
                 console.log(res);
                 if (res.code == 200) {
                     getShow();
@@ -223,7 +223,7 @@
 
         })
         // 编辑文章类别
-        $('#articType').on('click','.edit',function(){
+        $('#articType').on('click','.edit',()=>{
             // 让模态框显示
             $('#editModal').modal('show');
             // 输入框显示对应的内容
@@ -250,7 +250,7 @@
             
         })
         // 点击保存重新获取
-        $('#model_save').click(function(){
+        $('#model_save').click(()=>{
             var id =  $('#recipientId').val().trim()
             var name = $('#recipientName').val().trim()
             var slug = $('#recipientSlug').val().trim()
@@ -259,7 +259,7 @@
                 alert('不能为空')
                 return
             }
-            ARTIC.editArticType(id,name,slug).then(function(res){
+            ARTIC.editArticType(id,name,slug).then(res=>{
                     console.log(res);
                     if(res.code==200){
                         $('#editModal').modal('hide');
@@ -270,7 +270,7 @@
                 })
         })
         //点击关闭 关闭模态框
-        $('#model_off').click(function(){
+        $('#model_off').click(()=>{
             $('#editModal').modal('hide');
         })
     </script>
